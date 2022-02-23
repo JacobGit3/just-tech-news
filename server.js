@@ -4,8 +4,9 @@ const exphbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection');
-const hbs = exphbs.create({});
 const session = require('express-session');
+const helpers = require('./utils/helper');
+const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
